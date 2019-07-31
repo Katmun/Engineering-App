@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+    
+    <style>
+        /* Dropdown style */
+        .dropbtn {
+            background-color: #3498DB;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropbtn:hover,
+        .dropbtn:focus {
+            background-color: #2980B9;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 220px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block!important;
+        }
+
+        .show {
+            display: block;
+        }
+
+        /* Label + Input Style*/
+        .qb-row label {
+            font-weight: bold;
+        }
+
+        .qb-row {
+            display: flex;
+        }
+
+        .qb-groupInput label {
+            display: block;
+            text-align: left;
+        }
+
+        .qb-groupInput {
+            margin: 15px 20px 0px 0px;
+        }
+
+        .qb-textInput {
+            width: 210px;
+            box-shadow: 2px 3px #DEDEDE;
+            border-radius: 5px;
+            padding: 5px;
+            display: block;
+            border: 1px solid #ccc;
+        }
+
+        .qb-textInputWin {
+            width: 150px;
+            box-shadow: 2px 3px #DEDEDE;
+            border-radius: 5px;
+            padding: 5px;
+            display: block;
+            border: 1px solid #ccc;
+        }
+
+        .qb-textInputLight {
+            width: 130px;
+            box-shadow: 2px 3px #DEDEDE;
+            border-radius: 5px;
+            padding: 5px;
+            display: block;
+            border: 1px solid #ccc;
+        }
+
+        .qb-space {
+            width: 210px;
+            border: 1px solid rgb(255, 255, 255);
+        }
+
+        .qb-boxTextInput {
+            width: 440px;
+            height: 100px;
+            box-shadow: 2px 3px #DEDEDE;
+            border-radius: 5px;
+            padding: 5px;
+            display: block;
+            border: 1px solid #ccc;
+        }
+
+        .required-label:after {
+            color: #e32;
+            content: ' *';
+            display: inline;
+        }
+
+        .qb-select {
+            width: 210px;
+            box-shadow: 2px 3px #DEDEDE;
+            border-radius: 5px;
+            padding: 7px;
+            display: block;
+            border: 1px solid #ccc;
+        }
+
+        .qb-selectFoundation {
+            width: 320px;
+            box-shadow: 2px 3px #DEDEDE;
+            border-radius: 5px;
+            padding: 7px;
+            display: block;
+            border: 1px solid #ccc;
+        }
+
+        .qb-selectLocation {
+            width: 470px;
+            box-shadow: 2px 3px #DEDEDE;
+            border-radius: 5px;
+            padding: 7px;
+            display: block;
+            border: 1px solid #ccc;
+        }
+        .qb-selectWin {
+            width: 150px;
+            box-shadow: 2px 3px #DEDEDE;
+            border-radius: 5px;
+            padding: 7px;
+            display: block;
+            border: 1px solid #ccc;
+        }
+
+        /* Style the dropdown content */
+        .content {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+            height: 80%;
+            overflow: auto;
+        }
+
+        /*Style Icon*/
+        .icon {}
+
+        /*Style Header*/
+        h4 {
+            font-weight: bold;
+            color:#7A7A7A;
+        }
+
+        h5 {
+            font-weight: bold;
+            color: rgb(72, 109, 241);
+        }
+
+        /*Style line*/
+        hr {
+            margin:-10px 0px 0px 0px;
+            border-color:#D1D0CE;
+        }
+        
+        #nextBtn, #prevBtn {
+            cursor: pointer;
+        }
+        
+        /* Dialog Size */
+        #qb-form.content{
+            height: 440px;
+        }
+        
+        /* Style Table */
+        .qb-table {
+            table-layout: fixed;
+            max-width: 550px;
+            width: 550px;
+            border-collapse: collapse;
+        }
+        .qb-table th {
+            background: linear-gradient(to bottom, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%);
+            text-align: center;
+            padding:5px;
+        }
+
+        .qb-table td:nth-child(1) {
+            padding:5px;
+            border: 1px solid #ddd;
+            text-align: center;
+            background-color:white;
+        }
+
+        .qb-table td:nth-child(3) {
+            border: 1px solid #ddd;
+            text-align: center;
+            background-color:white;
+        }
+
+        .qb-table td:nth-child(even) {
+            border: 1px solid #ddd;
+            text-align: center;
+            background-color:white;
+            word-wrap: break-word;
+            vertical-align: middle;
+        }
+        .qb-table td:nth-child(5) {
+            border: 1px solid #ddd;
+            text-align: center;
+            background-color:white;
+        }
+        .qb-table td:nth-child(7) {
+            border: 1px solid #ddd;
+            text-align: center;
+            background-color:white;
+        }
+
+        .qb-tableContainer{
+            margin: 20px 0px 0px 0px;
+            display: flex;
+            background: #EFEEEC;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 3px 4px #DEDEDE;
+            border: 1px solid #D4D4D4;
+            width: 1000px;
+        }
+
+        /*style buttons*/
+        /*button.btnNew, button.btnDelete, button.btnCopy
+        {
+            text-align: center;
+            font-size: 12px;
+            padding: 5px 20px;
+            vertical-align: middle;
+            display: inline-block;
+            color:white;
+        }
+        
+        .btnNew {
+            margin-left:80px;
+            border-radius: 5px;
+            background-color:#4CAF50;
+        }
+
+        .btnDelete {
+            margin-left:135px;
+            border-radius: 5px;
+            background-color:#f44336;
+        }
+        .btnCopy {
+            margin-left:135px;
+            border-radius: 5px;
+            background-color:#555555;
+        }*/
+
+        .ui-button-text {
+            height:30px;
+        }
+
+        td {
+            vertical-align: middle;
+        }
+        
+        /* Style highlight row */
+        #slabTable tr.highlight {
+          background-color: #063774;
+          color:White; 
+        }
+        
+
+
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="dropdown">
+        <button id="selectItem" class="dropbtn">Select Item</button>
+        <div id="myDropdown" class="dropdown-content">
+            <a class="listLinks hideOnClick active" id="templateBtn" href="#template" onclick="openList(event, 'qb-template')">Template Information</a>
+            <a class="listLinks hideOnClick" id="buildingBtn" href="#building" onclick="openList(event, 'qb-building')">Building Information</a>
+            <a class="listLinks hideOnClick" id="slabBtn" href="#slab" onclick="openList(event, 'qb-slab')">Slab</a>
+            <a class="listLinks hideOnClick" id="floorBtn" href="#floor" onclick="openList(event, 'qb-floor')">Floor</a>
+            <a class="listLinks hideOnClick" id="wallBtn" href="#wall" onclick="openList(event, 'qb-wall')">Wall</a>
+            <a class="listLinks hideOnClick" id="fenestrationBtn" href="#fenestration" onclick="openList(event, 'qb-fenestration')">Fenestration</a>
+            <a class="listLinks hideOnClick" id="ceilingBtn" href="#ceiling" onclick="openList(event, 'qb-ceiling')">Ceiling</a>
+            <a class="listLinks hideOnClick" id="mechanicalBtn" href="#mechanical" onclick="openList(event, 'qb-mechanical')">Mechanical</a>
+            <a class="listLinks hideOnClick" id="lightBtn" href="#light" onclick="openList(event, 'qb-light')">Light & Appliances</a>
+        </div>
+    </div>
+    
+    <div id="qb-form" class="mydivs">
+                
+        <!--Template Information-->
+                <div class="content" id="qb-template" style="display: block; height:450px">
+                    <div class=qb-row>
+                        <div class=qb-groupInput>
+                            <label for="builderName" class="required-label">Builder Name</label>
+                            <input type="text" class="qb-textInput" id="builderName" placeholder="Enter Builder Name">
+                        </div>
+                    </div>
+                    <div class=qb-row>
+                        <div class=qb-groupInput>
+                            <label for="planName">Plan Name</label>
+                            <input type="text" class="qb-textInput" id="builderName" placeholder="Enter Plan Name">
+                        </div>
+
+                        <div class=qb-groupInput>
+                            <label for="status">Status</label>
+                            <select class="qb-select" id="status">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class=qb-row>
+                        <div class=qb-groupInput>
+                            <label for="engineerName">Engineer Name</label>
+                            <select class="qb-select" id="engineerName">
+                                <option value="troy">Troy Maharg</option>
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div class=qb-groupInput>
+                            <label for="engineerRtin">Engineer RTIN</label>
+                            <input type="text" class="qb-textInput" id="engineerRtin" placeholder="Enter RTIN">
+                        </div>
+                    </div>
+
+                    <div class=qb-row>
+                        <div class=qb-groupInput>
+                            <label for="templateNote">Template Notes</label>
+                            <textarea type="text" class="qb-boxTextInput" id="templateNote" cols="100" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+        <!--Building Information-->
+                <div class="content" id="qb-building" style="height:450px">
+                    <h4>Site Information</h4>
+                    <hr>
+                    <div class=qb-row>
+                        <div class=qb-groupInput>
+                            <label for="weatherLocation">Weather Location</label>
+                            <select class="qb-select" id="weatherLocation">
+                                <option value="">Select a Location</option>
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <h4>Building Information</h4>
+                    <hr>
+                    <div class=qb-row>
+                        <div class=qb-groupInput>
+                            <label for="floorGrade">Floors Above Grades</label>
+                            <select class="qb-select" id="status">
+                                <option value="default">Select an Item</option>
+                                <option value="one">1</option>
+                                <option value="two">2</option>
+                                <option value="three">3+</option>
+                            </select>
+                        </div>
+                        <div class=qb-groupInput>
+                            <label for="bedroomNum"># of Bedroom</label>
+                            <input type="text" class="qb-textInput" id="bedroomNum" placeholder="Enter # of Bedroom">
+                        </div>
+                    </div>
+
+                    <div class=qb-row>
+                        <div class=qb-groupInput>
+                            <label for="conditionedArea">Conditioned Area</label>
+                            <input type="text" class="qb-textInput" id="conditionedArea" placeholder="Enter Area">
+                        </div>
+                        <div class=qb-groupInput>
+                            <label for="Volume">Volume</label>
+                            <input type="text" class="qb-textInput" id="Volume" placeholder="Enter Volume">
+                        </div>
+                    </div>
+
+                    <div class=qb-row>
+                        <div class=qb-groupInput>
+                            <label for="housingType">Housing Type</label>
+                            <select class="qb-select" id="housingType">
+                                <option value="default">Select Housing Type</option>
+                                <option value="sfDetached">Single-family detached</option>
+                                <option value="townhouseEnd">Townhouse, end unit</option>
+                                <option value="townhouseInside">Townhouse, inside unit</option>
+                                <option value="aptEnd">Apartment, end unit</option>
+                                <option value="aptInside">Apartment, inside unit</option>
+                                <option value="duplex">Duplex, single unit</option>
+                                <option value="none">None</option>
+                            </select>
+                        </div>
+                        <div class=qb-groupInput>
+                            <label for="yearBuilt">Year Built</label>
+                            <select class="qb-select" id="yearBuilt">
+                                <option value="default">Select Year</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class=qb-row>
+                        <div class=qb-groupInput>
+                            <label for="Foundation Type">Foundation Type</label>
+                            <select class="qb-selectFoundation" id="housingType">
+                                <option value="default">Select Foundation Type</option>
+                                <option value="slab">Slab</option>
+                                <option value="openCrawlSpace">Open crawl space/raised floor</option>
+                                <option value="endCrawlSpace">Enclosed crawl space</option>
+                                <option value="conditionedCrawl">Conditioned crawl space</option>
+                                <option value="conditionedBasement">Conditioned basement</option>
+                                <option value="unconditionedBasement">Unconditioned basement</option>
+                                <option value="moretype">More than one type</option>
+                                <option value="aboveSpace">Apartment above conditioned space</option>
+                                <option value="none">None</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+        <!--Slab-->
+                <div class="content" id="qb-slab" style="height:450px">   
+                    <h4>Slab Properties Summary</h4>
+                    <hr>
+                    <br>
+                    
+                    <div class="qb-tableContainer qb-addRow">
+                        <table class="qb-table" id="slabTable">
+                            <thead>
+                                <tr>
+                                    <th width="30px">#</th>
+                                    <th width="220px">Name</th>
+                                    <th width="250px">Type</th>
+                                    <th width="100px">Area</th>
+                                    <th width="100px">Depth</th>
+                                    <th width="100px">Full Per</th>
+                                    <th width="100px">Grade Per</th>
+                                    <th width="40px"><i class="fas fa-trash-alt" onclick="removeRow('type')" style="color:#dc3545;"></i></th>
+                                    <th width="40px"><i class="far fa-copy" onclick="copyRow('type')" style="color:#ffbf00;"></i></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+    
+                            </tbody>
+                            
+                        </table>
+                            <div  title="Add a new row.">
+                            <button class="btnNewSlab" onclick="addSlabRow()" style="margin-left:20px; width:36px;background-color:white">
+                                <i class="fa fa-plus" style="font-size:32px;color:#47d147;padding:5px"></i>
+                            </button>
+                            </div>
+                    </div>
+                    
+                    <br> 
+                    
+                </div>
+                
+        <!--Floor-->         
+                <div class="content" id="qb-floor" style="height:450px">
+                    <h4>Floor Properties Summary</h4>
+                    <hr>
+                    <div class="qb-tableContainer qb-addRow">
+                        <table class="qb-table" id="floorTable">
+                            <thead>
+                                <tr>
+                                    <th width="30px">#</th>
+                                    <th width="180px">Name</th>
+                                    <th width="120px">Area</th>
+                                    <th width="120px">Filter Floor</th>
+                                    <th width="200px">Type</th>
+                                    <th width="250px">Floor Location</th>
+                                    <th width="40px"><i class="fas fa-trash-alt" onclick="removeRow('type')" style="color:#dc3545;"></i></th>
+                                    <th width="40px"><i class="far fa-copy" onclick="copyRow('type')" style="color:#ffbf00;"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                            
+                        </table>
+                            <div  title="Add a new row.">
+                            <button class="btnNewFloor" onclick="addFloorRow()" style="margin-left:20px; width:36px;background-color:white">
+                                <i class="fa fa-plus" style="font-size:32px;color:#47d147;padding:5px"></i>
+                            </button>
+                            </div>
+                    </div>
+                    
+                </div>
+        
+        <!--Wall-->
+                <div class="content" id="qb-wall" style="height:450px"> 
+                    <h4>Wall Properties Summary</h4>
+                    <hr>
+                    <div class="qb-tableContainer">
+                        <table class="qb-table" id="wallTable">
+                            <thead>
+                                <tr>
+                                    <th width="30px">#</th>
+                                    <th width="180px">Name</th>
+                                    <th width="120px">Filter Wall</th>
+                                    <th width="200px">Type</th>
+                                    <th width="105px">Exterior Color</th>
+                                    <th width="105px">Gross Area</th>
+                                    <th width="160px">Wall Location</th>
+                                    <th width="40px"><i class="fas fa-trash-alt" onclick="removeRow('type')" style="color:#dc3545;"></i></th>
+                                    <th width="40px"><i class="far fa-copy" onclick="copyRow('type')" style="color:#ffbf00;"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                        
+                        <div  title="Add a new row.">
+                            <button class="btnNewWall" onclick="addWallRow()" style="margin-left:20px; width:36px;background-color:white">
+                                <i class="fa fa-plus" style="font-size:32px;color:#47d147;padding:5px"></i>
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+            <!--Fenestration-->
+                <div class="content" id="qb-fenestration" style="height:450px"> 
+                    <h4>Window Properties Summary</h4>
+                    <hr>
+                    <div class="qb-tableContainer">
+                        <table class="qb-table" id="winTable">
+                            <thead>
+                                <tr>
+                                    <th width="30px">#</th>
+                                    <th width="140px">Window Name</th>
+                                    <th width="220px">Window Type</th>
+                                    <th width="100px">Area</th>
+                                    <th width="120px">Window Orient</th>
+                                    <th width="100px">U-Value</th>
+                                    <th width="100px">SHGC</th>
+                                    <th width="90px">Wall #</th>
+                                    <th width="40px"><i class="fas fa-trash-alt" onclick="removeRow('type')" style="color:#dc3545;"></i></th>
+                                    <th width="40px"><i class="far fa-copy" onclick="copyRow('type')" style="color:#ffbf00;"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                            
+                        </table>
+                        
+                        <div  title="Add a new row.">
+                            <button class="btnNewWall" onclick="addWinRow()" style="margin-left:20px; width:36px;background-color:white">
+                                <i class="fa fa-plus" style="font-size:32px;color:#47d147;padding:5px"></i>
+                            </button>
+                        </div>
+            
+                    </div>
+                    <br>
+            
+                    
+                    <h4>Window Properties</h4>
+                    <hr>
+                    <br>
+                    <div class=qb-row>
+                            <h5>Overhang: </h5>
+                            <h5 style="padding-left:125px">Interior Shading:</h5>
+                            <h5 style="padding-left:75px">Adjacent Shading: </h5>
+    
+                        </div>
+    
+                        <div class=qb-row>
+                            <div class=qb-groupInput>
+                                <label for=winDepth>Window Depth</label>
+                                <input type="text" class="qb-textInputWin" id="winDepth" placeholder="">
+                            </div>
+                            <div class=qb-groupInput style="padding-left:45px">
+                                <label for=winter>Winter</label>
+                                <input type="text" class="qb-textInputWin" id="winter" placeholder="">
+                            </div>
+                            <div class=qb-groupInput style="padding-left:45px">
+                                    <label for="adjWinter">Winter</label>
+                                    <select class="qb-selectWin" id="adjWinter">
+                                        <option value="default"></option>
+                                        <option value="complete">Complete</option>
+                                        <option value="most">Most</option>
+                                        <option value="none">None</option>
+                                        <option value="some">Some</option>
+                                    </select>
+                                </div>
+                        </div>
+    
+                        <div class=qb-row>
+                                <div class=qb-groupInput>
+                                    <label for=winTop>To Top of Window (ft)</label>
+                                    <input type="text" class="qb-textInputWin" id="winDepth" placeholder="">
+                                </div>
+                                <div class=qb-groupInput style="padding-left:45px">
+                                    <label for=summer>Summer</label>
+                                    <input type="text" class="qb-textInputWin" id="summer" placeholder="">
+                                </div>
+                                <div class=qb-groupInput style="padding-left:45px">
+                                        <label for="adjSummer">Summer</label>
+                                        <select class="qb-selectWin" id="adjSummer">
+                                            <option value="default"></option>
+                                            <option value="complete">Complete</option>
+                                            <option value="most">Most</option>
+                                            <option value="none">None</option>
+                                            <option value="some">Some</option>
+                                        </select>
+                                    </div>
+                        </div>
+                        <div class=qb-row>
+                                <div class=qb-groupInput>
+                                    <label for=winTop>To Bottom of Window (ft)</label>
+                                    <input type="text" class="qb-textInputWin" id="winDepth" placeholder="">
+                                </div>
+                        </div>
+                    
+                    <h4>Door Properties Summary</h4>
+                    <hr>
+                    <div class="qb-tableContainer">
+                        <table class="qb-table" id="doorTable">
+                            <thead>
+                                <tr>
+                                    <th width="30px">#</th>
+                                    <th width="250px">Door Name</th>
+                                    <th width="350px">Door Type</th>
+                                    <th width="150px">Door Opaque Area</th>
+                                    <th width="120px">Wall #</th>
+                                    <th width="40px"><i class="fas fa-trash-alt" onclick="removeRow('type')" style="color:#dc3545;"></i></th>
+                                    <th width="40px"><i class="far fa-copy" onclick="copyRow('type')" style="color:#ffbf00;"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                            
+                        </table>
+                        <div  title="Add a new row.">
+                            <button class="btnNewDoor" onclick="addDoorRow()" style="margin-left:20px; width:36px;background-color:white">
+                                <i class="fa fa-plus" style="font-size:32px;color:#47d147;padding:5px"></i>
+                            </button>
+                        </div>                
+                    </div>
+                    <br>
+
+                    <h4>Wall Assignment</h4>
+                    <hr>  
+                    <div class=qb-row>
+                            <div class=qb-groupInput>
+                                <label for="wallAssign">Wall Assignment</label>
+                                <select class="qb-select" id="wallAssign">
+                                    <option value="default">Select Wall Assignment</option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                    </div> 
+                </div>
+                    
+                    
+                        
+        
+        <!--Ceiling-->
+                <div class="content" id="qb-ceiling" style="height:450px">
+                    <h4>Ceiling Properties Summary</h4>
+                    <hr>
+                    <div class="qb-tableContainer">
+                        <table class="qb-table" id="ceilingTable">
+                            <thead>
+                                <tr>
+                                    <th width="30px">#</th>
+                                    <th width="220px">Name</th>
+                                    <th width="250px">Type</th>
+                                    <th width="100px">Area</th>
+                                    <th width="100px">Style</th>
+                                    <th width="100px">Radiant</th>
+                                    <th width="100px">Attic Exterior</th>
+                                    <th width="40px"><i class="fas fa-trash-alt" onclick="removeRow('type')" style="color:#dc3545;"></i></th>
+                                    <th width="40px"><i class="far fa-copy" onclick="copyRow('type')" style="color:#ffbf00;"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                            
+                        </table>
+                        
+                        <div  title="Add a new row.">
+                            <button class="btnNewCeiling" onclick="addCeilingRow()" style="margin-left:20px; width:36px;background-color:white">
+                                <i class="fa fa-plus" style="font-size:32px;color:#47d147;padding:5px"></i>
+                            </button>
+                        </div>   
+                    </div>
+
+    
+                    <h4>Roof Properties (optional inputs)</h4>
+                    <hr>
+                    <div class=qb-row>
+                        <div class=qb-groupInput>
+                            <label for="roofColor">Exterior Color</label>
+                            <select class="qb-select" id="roofColor">
+                                <option value="default">Select Exterior Color</option>
+                                <option value="dark">Dark</option>
+                                <option value="light">Light</option>
+                                <option value="medium">Medium</option>
+                                <option value="reflective">Reflective</option>
+                            </select>
+                        </div>
+                        <div class=qb-groupInput>
+                                <label for="roofingTiles">Clay or Concrete Roofing Tiles</label>
+                                <select class="qb-select" id="roofingTiles">
+                                    <option value="default"></option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                    </div>
+    
+    
+                    <div class=qb-row>
+                        <div class=qb-groupInput>
+                                <label for="radiantBarrier">Radiant Barrier</label>
+                                <select class="qb-select" id="radiantBarrier">
+                                    <option value="default"></option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                        </div>
+                        <div class=qb-groupInput>
+                                <label for="ventPresent">Sub-Tile Ventilation Present</label>
+                                <select class="qb-select" id="ventPresent">
+                                    <option value="default"></option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                    </div>
+                </div>
+                
+        <!--Mechanical-->
+                <div class="content" id="qb-mechanical" style="height:450px">
+                    Mechenical Info
+                </div>
+        
+        <!--Light & Appliances-->
+                <div class="content" id="qb-light" style="height:450px">
+                    <h4>Refrigerator</h4>
+                    <hr>
+                    <div class=qb-row>
+                        <div class=qb-groupInput>
+                            <label for=totalConsump>Total Consumption (kWh/yr)</label>
+                            <input type="text" class="qb-textInput" id="totalConsump" placeholder="">
+                        </div>
+                        <div class=qb-groupInput>
+                                <label for="refrigLocation">Location</label>
+                                <select class="qb-select" id="refrigLocation">
+                                    <option value="default">Select Location</option>
+                                    <option value="condition">Conditioned</option>
+                                    <option value="uncondition">Unconditioned</option>
+                                </select>
+                            </div>
+                    </div>
+    
+                    <h4>Dishwasher</h4>
+                    <hr>       
+                    <div class=qb-row>
+                        <div class=qb-groupInput>
+                            <label for=energyFactor>Energy Factor</label>
+                            <input type="text" class="qb-textInputLight" id="energyFactor" placeholder="">
+                        </div>
+                        <div class=qb-groupInput>
+                                <label for=kWh>or kWh/yr</label>
+                                <input type="text" class="qb-textInputLight" id="kWh" placeholder="">
+                        </div>
+                        <div class=qb-groupInput>
+                            <label for=capacity>Place Setting Capacity</label>
+                            <input type="text" class="qb-textInputLight" id="capacity" placeholder="">
+                        </div>
+                    </div>
+    
+                    <h4>Range/Oven</h4>
+                    <hr> 
+                    <div class=qb-row>
+                            <div class=qb-groupInput>
+                                    <label for="fuel">Fuel</label>
+                                    <select class="qb-select" id="fuel">
+                                        <option value="default">Select Fuel Type</option>
+                                        <option value="electric">Electric</option>
+                                        <option value="oil">Fuel oil</option>
+                                        <option value="kerosene">Kerosene</option>
+                                        <option value="gas">Natural gas</option>
+                                        <option value="propane">Propane</option>
+                                        <option value="wood">Wood</option>
+                                    </select>
+                                </div>
+                            <div class=qb-groupInput>  
+                            <input type="checkbox" class="qb-checkbox" style="margin-top:40px"> Induction Range  
+                        </div>  
+                        <div class=qb-groupInput>  
+                                <input type="checkbox" class="qb-checkbox" style="margin-top:40px"> Convection Oven 
+                            </div> 
+                        </div>
+    
+                    <h4>Lighting</h4>
+                    <hr>
+                    <div class=qb-row>
+                            <h5 style="margin-left:150px">%(FL+CFL)</h5>
+                            <h5 style="margin-left:150px">%LED</h5>
+                    </div>
+                    <div class=qb-row>
+                            <h5>Interior</h5>
+                            <div class=qb-groupInput style="padding-left:85px">
+                                    <input type="text" class="qb-textInputLight" id="interior1" placeholder="">
+                            </div>
+                            <div class=qb-groupInput style="padding-left:85px">
+                                    <input type="text" class="qb-textInputLight" id="interior2" placeholder="">
+                            </div>
+                    </div>
+                    <div class=qb-row>
+                            <h5>Exterior</h5>
+                            <div class=qb-groupInput style="padding-left:83px">
+                                    <input type="text" class="qb-textInputLight" id="exterior1" placeholder="">
+                            </div>
+                            <div class=qb-groupInput style="padding-left:85px">
+                                    <input type="text" class="qb-textInputLight" id="exterior2" placeholder="">
+                            </div>
+                    </div>
+                    <div class=qb-row>
+                            <h5>Garage</h5>
+                            <div class=qb-groupInput style="padding-left:89px">
+                                    <input type="text" class="qb-textInputLight" id="garage1" placeholder="">
+                            </div>
+                            <div class=qb-groupInput style="padding-left:85px">
+                                    <input type="text" class="qb-textInputLight" id="garage2" placeholder="">
+                            </div>
+                    </div>
+    
+    
+                    <h4>Ceiling Fan(s)</h4>
+                    <hr>        
+    
+                    <div class=qb-row>
+                        <div class=qb-groupInput>
+                            <label for="cfm">CFM/Watt (at Med. speed)</label>
+                            <input type="text" class="qb-textInput" id="cfm" placeholder="">
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        
+            <div class=qb-row style="margin-top:15px">
+                <div class="icon" style="padding-left:150px">             
+                    <button name="prev" style="background-color:white"><i id="prevBtn" class="fa fa-arrow-circle-o-left" style="font-size:48px;color:#3498DB; background-color:white"></i></button>
+                </div>
+                <div class="icon" style="padding-left:700px">   
+                    <button name="next" style="background-color:white"><i id="nextBtn" class="fa fa-arrow-circle-o-right" style="font-size:48px;color:#3498DB; background-color:white"></i></button>
+                </div>
+            </div>
+                
+    <script>
+        // Dropdown hide and show
+        
+           $(document).on('click', 'a.hideOnClick', function(event) {
+                $('.dropdown-content').hide();
+                const selectItem = document.querySelector('#selectItem');
+                selectItem.textContent = event.target.textContent;
+            });
+            
+            $('.dropdown').on('mouseenter', function(){
+            	$('.dropdown-content').show();
+            });
+        
+        // Select item in dropdown list 
+            function openList(evt, listName) {
+                  var i, content, listLinks;
+                  content = document.getElementsByClassName("content");
+                  for (i = 0; i < content.length; i++) {
+                    content[i].style.display = "none";
+                  }
+                  listLinks = document.getElementsByClassName("listLinks");
+                  for (i = 0; i < listLinks.length; i++) {
+                    listLinks[i].className = listLinks[i].className.replace("active", "");
+                  }
+                  document.getElementById(listName).style.display = "block";
+                  evt.currentTarget.className += " active";
+                }
+        
+                
+            setTimeout(() => findDivs(), 1000);
+        
+            function findDivs() {
+                var divs = $('.mydivs>div');
+                var now = 0; // currently shown div
+                divs.hide().first().show();
+                $("button[name=next]").click(function (e) {
+                    divs.eq(now).hide();
+                    now = (now + 1 < divs.length) ? now + 1 : 0;
+                    divs.eq(now).show(); // show next
+                    const id = divs.eq(now).attr('id');
+                    const sliceId = id.slice(3);
+                    
+                    const listLinks = document.querySelectorAll('.listLinks');
+                    const llArray = Array.from(listLinks);
+                    
+                    llArray.forEach(link => {
+                        if (link.getAttribute('href').slice(1) === sliceId) {
+                            const selectItem = document.querySelector('#selectItem');
+                            selectItem.textContent = link.textContent;
+                        }
+                    });
+                });
+                $("button[name=prev]").click(function (e) {
+                    divs.eq(now).hide();
+                    now = (now > 0) ? now - 1 : divs.length - 1;
+                    divs.eq(now).show(); // or .css('display','block');
+                    //console.log(divs.length, now);
+                    const id = divs.eq(now).attr('id');
+                    const sliceId = id.slice(3);
+                    
+                    const listLinks = document.querySelectorAll('.listLinks');
+                    const llArray = Array.from(listLinks);
+                    
+                    llArray.forEach(link => {
+                        if (link.getAttribute('href').slice(1) === sliceId) {
+                            const selectItem = document.querySelector('#selectItem');
+                            selectItem.textContent = link.textContent;
+                        }
+                    });
+                });
+            }
+            
+        //--------------------Slab Content----------------------
+                //add a new row
+                    function addSlabRow() {
+                        let htmlRow = `<tr class="tr_clone">
+                        <td><input type="text" style="width:23px"></td>
+                        <td><input type="text" style="width:216px"></td>
+                        <td>
+                            <select class="slabType" style="width:246px; height:25px">
+                            <option value="Select">Select</option>
+                            <option value="Peruneter">Perimeter</option>
+                            </select>    
+                        </td>
+                        <td><input type="text" style="width:96px"></td>
+                        <td><input type="text" style="width:96px"></td>
+                        <td><input type="text" style="width:96px"></td>
+                        <td><input type="text" style="width:90px"></td>
+                        
+                        <td><button class="btnDeleteSlab" style="background-color:white;padding:5px"><i class="fas fa-trash-alt" style="color:#dc3545;"></i></button></td>
+                        <td><button class="btnCopySlab" onclick="copyRow()" style="background-color:white;padding:5px;width:37px;height:32px" ><i class="far fa-copy" style="color:#ffbf00;"></i></button></td>
+                        
+                        </tr>`;
+                        
+                        $("#slabTable tbody").append(htmlRow);
+                        
+                        /*$("#slabTable").on("click", "tr", function(event) {
+                            //alert(event);
+                        });*/
+                    }
+                    
+                //delete a row    
+                    $(document).on("click", ".btnDeleteSlab", function(){
+                        $(this).closest('tr').remove();
+                    });
+                
+                //copy a row
+                    function copyRow(){
+                    var table = $("#slabTable")[0];
+
+                    $(table).on('click',".btnCopySlab", function () {
+                        var thisRow = $(this).closest( 'tr' )[0];
+                        $(thisRow).clone().insertAfter(thisRow).find('input:text').val('');
+                    });
+                    }
+                    /*$("input.btnCopySlab").live('click', function() {
+                        
+                        var $tr    = $(this).closest('.tr_clone');
+                        var $clone = $tr.clone();
+                        
+                        console.log();
+                        $clone.find(':text').val('');
+                        $tr.after($clone);
+                    });*/
+                    
+                    /*$("#btnCopySlab").on("click",function(){
+       
+                        var $tableBody = $('#slabTable').find("tbody"),
+                                $trLast = $tableBody.find("tr:last"),
+                                $trNew = $trLast.clone();
+                        		
+                        console.log(tableBody);		
+                    
+                            $trLast.after($trNew);
+                        });*/
+                        
+                    /*function copyRow() {
+                        var rowToAdd = $("#slabTable tbody tr:last").clone();
+                        $(rowToAdd).find('td').each(function(){
+                            $(this).text('');
+                        });
+                        $("#slabTable tbody").append(rowToAdd);
+                        
+                    }*/
+                    
+                    /*function copyRow() {
+                        var totalColumns = $("#slabTable tbody tr:last td").length;
+                        var rowHtml='<tr>';
+                        for(var i=0; i < totalColumns; i++){
+                            var columnHtml = '<td></td>';
+                            rowHtml = rowHtml +'</tr>';
+                            $("slabTable").append(rowHtml);
+                        }
+                    }*/
+                
+        //--------------------Floor Content----------------------  
+                //add a new row
+                    function addFloorRow() {
+                        let htmlRow = `<tr>
+                        <td><input type="text" style="width:23px"></td>
+                        <td>
+                            <select class="floorName" style="width:176px; height:25px">
+                                <option value="default">Select Floor Name</option>
+                                <option value="ambient">Floor Over Ambient Conditions</option>
+                                <option value="garage">Floor Over Garage</option>
+                                <option value="openCrawlSpace">Floor Over Open Crawl Space</option>
+                                <option value="enclosedCrawlSpace">Floor Over Enclosed Crawl Space</option>
+                                <option value="basement">Floor Over Unconditioned Basement</option>
+                                <option value="adiabatic">Floor Over Adiabatic</option>
+                            </select> 
+                        </td>
+                        <td><input type="text" style="width:116px"></td>
+                        <td>
+                            <select class="floorFilter" style="width:116px; height:25px">
+                                <option value="default">Select Floor</option>
+                                <option value="6">2x6</option>
+                                <option value="10">2x10</option>
+                                <option value="12">2x12</option>
+                            </select> 
+                        </td>
+                        <td>
+                            <select class="floorType" style="width:196px; height:25px">
+                                <option value="default">Select</option>
+                                <option value=""> </option>
+                            </select>    
+                        </td>
+                        <td>
+                            <select class="floorLocation" style="width:246px; height:25px">
+                                <option value="default">Select Floor Location</option>
+                                <option value="none">None</option>
+                                <option value="ambient">Between conditioned space and ambient conditions</option>
+                                <option value="garage">Between conditioned space and garage</option>
+                                <option value="openCrawlSpace">Between conditioned space and open crawl space</option>
+                                <option value="basement">Between conditioned space and unconditioned basement</option>
+                                <option value="enclosedCrawlSpace">Between conditioned space and enclosed crawl space</option>
+                                <option value="adiabatic">Between conditioned space and another (adiabatic)</option>
+                            </select> 
+                        </td>
+                        
+                        <td><button class="btnDeleteFloor" style="background-color:white;padding:5px"><i class="fas fa-trash-alt" style="color:#dc3545;"></i></button></td>
+                        <td><button class="btnCopyFloor" style="background-color:white;padding:5px"><i class="far fa-copy" style="color:#ffbf00;"></i></button></td>
+                        
+                        </tr>`;
+                        
+                        $("#floorTable tbody").append(htmlRow);
+                        
+                    }
+                    
+                //delete a row    
+                    $(document).on("click", ".btnDeleteFloor", function(){
+                        $(this).closest('tr').remove();
+                    });
+                
+                
+        //--------------------Wall Content---------------------- 
+                //add a new row
+                    function addWallRow() {
+                        let htmlRow = `<tr>
+                        <td><input type="text" style="width:23px"></td>
+                        <td>
+                            <select class="wallName" style="width:176px; height:25px">
+                                <option value="default">Select Wall Name</option>
+                                <option value="exterior">Exterior Wall</option>
+                                <option value="garage">Garage</option>
+                                <option value="attic">Attic/Kneewall</option>
+                                <option value="adiabatic">Adiabatic</option>
+                            </select>    
+                        </td>
+                        <td>
+                            <select class="filterWall" style="width:116px; height:25px">
+                                <option value="default">Select Wall Library</option>
+                                <option value="4">2x4</option>
+                                <option value="6">2x6</option>
+                                <option value="8">2x8</option>
+                            </select>   
+                        </td>
+                        <td>
+                            <select class="wallType" style="width:196px; height:25px">
+                                <option value="default">Select Wall Type</option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>   
+                        </td>  
+                        <td>
+                            <select class="wallColor" style="width:101px; height:25px">
+                                <option value="default">Select Exterior Color</option>
+                                <option value="dark">Dark</option>
+                                <option value="light">Light</option>
+                                <option value="medium">Medium</option>
+                            </select>   
+                        </td>                           
+                        <td><input type="text" style="width:105px"></td>
+                        <td>
+                            <select class="wallLocation" style="width:156px; height:25px">
+                                <option value="default">Select Wall Location</option>
+                                <option value="none">None</option>
+                                <option value="ambient">Between conditioned space and ambient</option>
+                                <option value="garage">Between conditioned space and garage</option>
+                                <option value="openCrawl">Between conditioned space and open crawl</option>
+                                <option value="attic">Between conditioned space and attic</option>
+                                <option value="basement">Between conditioned space and unconditioned basement</option>
+                                <option value="enclosedCrawl">Between conditioned space and enclosed crawl</option>
+                                <option value="crawlAmbient">Between conditioned crawl and ambient</option>
+                                <option value="crawlGarage">Between conditioned crawl and garage</option>
+                                <option value="crawlOpenCrawl">Between conditioned crawl and open crawl</option>
+                                <option value="basementAmbient">Between unconditioned basement and ambient</option>
+                                <option value="basementGarage">Between unconditioned basement and garage</option>
+                                <option value="baementOpenCrawl">Between unconditioned basement and open crawl</option>
+                                <option value="crawlAmbient">Between enclosed crawl and ambient</option>
+                                <option value="crawlGarage">Between enclosed crawl and garage</option>
+                                <option value="enclosedOpenCrawl">Between enclosed crawl and open crawl</option>
+                                <option value="condUnit">Between cond and another cond unit (adiabatic)</option>
+                                <option value="sealedAttic">Between sealed attic and ambient</option>
+                            </select>   
+                        </td>        
+
+                        
+                        <td><button class="btnDeleteWall" style="background-color:white;padding:5px"><i class="fas fa-trash-alt" style="color:#dc3545;"></i></button></td>
+                        <td><button class="btnCopyWall" style="background-color:white;padding:5px;width:37px;height:32px" ><i class="far fa-copy" style="color:#ffbf00;"></i></button></td>
+                        
+                        </tr>`;
+                        
+                        $("#wallTable tbody").append(htmlRow);
+                        
+                    }
+                    
+                    //delete a row    
+                    $(document).on("click", ".btnDeleteWall", function(){
+                        $(this).closest('tr').remove();
+                    });
+
+        //--------------------Fenestration Content----------------------     
+            //-----------------------------Window Content----------------------
+                    //add a new row
+                    function addWinRow() {
+                        let htmlRow = `<tr>
+                        <td><input type="text" style="width:23px"></td>
+                        <td><input type="text" style="width:136px"></td>
+                        <td>
+                            <select class="winType" style="width:216px; height:25px">
+                                <option value="default">Select Win Type</option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>    
+                        </td>
+                        <td><input type="text" style="width:96px"></td>
+                        <td>
+                            <select class="winOrient" style="width:116px; height:25px">
+                                <option value="default">Select Orientation</option>
+                                <option value="east">East</option>
+                                <option value="north">North</option>
+                                <option value="northeast">Northeast</option>
+                                <option value="northwest">Northwest</option>
+                                <option value="south">South</option>
+                                <option value="southeast">Southeast</option>
+                                <option value="southwest">Southwest</option>
+                                <option value="west">West</option>
+                                <option value="none">None</option>
+                            </select>   
+                        </td>
+                        <td><input type="text" style="width:96px"></td>
+                        <td><input type="text" style="width:96px"></td>
+                        <td><input type="text" style="width:86px"></td>
+                        
+                        <td><button class="btnDeleteWin" style="background-color:white;padding:5px;width:37px;height:32px""><i class="fas fa-trash-alt" style="color:#dc3545;"></i></button></td>
+                        <td><button class="btnCopyWin" style="background-color:white;padding:5px;width:37px;height:32px" ><i class="far fa-copy" style="color:#ffbf00;"></i></button></td>
+                        
+                        </tr>`;
+                        
+                        $("#winTable tbody").append(htmlRow);
+                        
+                    }
+                    
+                    //delete a row    
+                    $(document).on("click", ".btnDeleteWin", function(){
+                        $(this).closest('tr').remove();
+                    });
+            
+            //-----------------------Door Content------------------------------
+                    //add a new row
+                    function addDoorRow() {
+                        let htmlRow = `<tr>
+                        <td><input type="text" style="width:23px"></td>
+                        <td><input type="text" style="width:246px"></td>
+                        <td>
+                            <select class="doorType" style="width:346px; height:25px">
+                                <option value="default">Select Door Name</option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>    
+                        </td>
+                        <td><input type="text" style="width:146px"></td>
+                        <td><input type="text" style="width:116px"></td>
+
+                        <td><button class="btnDeleteDoor" style="background-color:white;padding:5px;width:37px;height:32px""><i class="fas fa-trash-alt" style="color:#dc3545;"></i></button></td>
+                        <td><button class="btnCopyDoor" style="background-color:white;padding:5px;width:37px;height:32px" ><i class="far fa-copy" style="color:#ffbf00;"></i></button></td>
+                        
+                        </tr>`;
+                        
+                        $("#doorTable tbody").append(htmlRow);
+                        
+                    }            
+                    
+                    //delete a row    
+                    $(document).on("click", ".btnDeleteDoor", function(){
+                        $(this).closest('tr').remove();
+                    });
+            
+                
+            
+        //--------------------Ceiling Content---------------------- 
+                //add a new row
+                    function addCeilingRow() {
+                        let htmlRow = `<tr>
+                        <td><input type="text" style="width:23px"></td>
+                        <td><input type="text" style="width:216px"></td>
+                        <td>
+                            <select class="ceilingType" style="width:246px; height:25px">
+                                <option value="default">Select Ceiling Type</option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </select>    
+                        </td>
+                        <td><input type="text" style="width:96px"></td>
+                        <td><input type="text" style="width:96px"></td>
+                        <td><input type="text" style="width:96px"></td>
+                        <td><input type="text" style="width:96px"></td>
+
+                        <td><button class="btnDeleteCeiling" style="background-color:white;padding:5px;width:37px;height:32px""><i class="fas fa-trash-alt" style="color:#dc3545;"></i></button></td>
+                        <td><button class="btnCopyCeiling" style="background-color:white;padding:5px;width:37px;height:32px" ><i class="far fa-copy" style="color:#ffbf00;"></i></button></td>
+                        
+                        </tr>`;
+                        
+                        $("#ceilingTable tbody").append(htmlRow);
+                        
+                    }
+                    //delete a row    
+                    $(document).on("click", ".btnDeleteCeiling", function(){
+                        $(this).closest('tr').remove();
+                    });
+        
+        //--------------------Mechanical Content----------------------
+        
+        //--------------------Light & Appliances Content---------------------- */
+        
+
+    </script>
+
+</body>
+
+</html>
