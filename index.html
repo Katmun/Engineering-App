@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 
     
     
@@ -977,7 +978,8 @@
                         <td>
                             <select class="slabType" style="width:246px; height:25px">
                             <option value="Select">Select</option>
-                            <option value="Peruneter">Perimeter</option>
+                            <option value="Perineter">Perimeter</option>
+                            <option value="addOption" style="background-image:url(https://images.quickbase.com/si/32/200-add.png);">Add New Type...</option>
                             </select>    
                         </td>
                         <td><input type="text" style="width:96px"></td>
@@ -986,7 +988,7 @@
                         <td><input type="text" style="width:90px"></td>
                         
                         <td><button class="btnDeleteSlab" style="background-color:white;padding:5px"><i class="fas fa-trash-alt" style="color:#dc3545;"></i></button></td>
-                        <td><button class="btnCopySlab" onclick="copyRow()" style="background-color:white;padding:5px;width:37px;height:32px" ><i class="far fa-copy" style="color:#ffbf00;"></i></button></td>
+                        <td><button class="btnCopySlab" onclick="copySlabRow()" style="background-color:white;padding:5px;width:37px;height:32px" ><i class="far fa-copy" style="color:#ffbf00;"></i></button></td>
                         
                         </tr>`;
                         
@@ -1003,7 +1005,7 @@
                     });
                 
                 //copy a row
-                    function copyRow(){
+                    function copySlabRow(){
                     var table = $("#slabTable")[0];
 
                     $(table).on('click',".btnCopySlab", function () {
@@ -1080,6 +1082,7 @@
                             <select class="floorType" style="width:196px; height:25px">
                                 <option value="default">Select</option>
                                 <option value=""> </option>
+                                <option value="add">Add New Type ... </option>
                             </select>    
                         </td>
                         <td>
@@ -1096,7 +1099,7 @@
                         </td>
                         
                         <td><button class="btnDeleteFloor" style="background-color:white;padding:5px"><i class="fas fa-trash-alt" style="color:#dc3545;"></i></button></td>
-                        <td><button class="btnCopyFloor" style="background-color:white;padding:5px"><i class="far fa-copy" style="color:#ffbf00;"></i></button></td>
+                        <td><button class="btnCopyFloor" onclick="copyFloorRow()" style="background-color:white;padding:5px"><i class="far fa-copy" style="color:#ffbf00;"></i></button></td>
                         
                         </tr>`;
                         
@@ -1108,6 +1111,16 @@
                     $(document).on("click", ".btnDeleteFloor", function(){
                         $(this).closest('tr').remove();
                     });
+                    
+                //copy a row
+                    function copyFloorRow(){
+                    var table = $("#floorTable")[0];
+    
+                    $(table).on('click',".btnCopyFloor", function () {
+                        var thisRow = $(this).closest( 'tr' )[0];
+                        $(thisRow).clone().insertAfter(thisRow).find('input:text').val('');
+                    });
+                    }
                 
                 
         //--------------------Wall Content---------------------- 
